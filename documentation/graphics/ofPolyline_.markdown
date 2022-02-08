@@ -961,6 +961,9 @@ If we have an empty `ofPolyline` `p`, and we do:
 
 We end up with a line that starts at `v0`, heads to `v1`, then heads to `v2` and finally ends at `v3`.  But if we had instead done:
 
+    p.addVertex(v1); // We need to add the starting point of the curve (v1) when using only curveTo otherwise the first point will be drawn slightly off v1.
+
+    // Appending curve:
     p.curveTo(v0); 
     p.curveTo(v1); 
     p.curveTo(v2); 
